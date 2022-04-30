@@ -6,8 +6,15 @@ with open('reviews.txt', 'r') as f:
 		count += 1 #count = count +1
 		if count % 1000 == 0: #%是用來求餘數 
 			print(len(data)) #讀取檔案的過程中，印出len(data)才知道讀取進度
-print(len(data)) #len可求清單或字串的長度 #共1000000筆留言
+print('檔案讀取完了，總共有', len(data), '筆資料') #len可求清單或字串的長度 #共1000000筆留言
 
 print(data[0]) 
 print('----------')
 print(data[1])		
+
+#牛留言平均長度
+sum_len = 0
+for d in data:
+	sum_len += len(d) #sum_len = sum_len + len(d)
+	print(sum_len)
+print('平均是', sum_len/len(data))	
