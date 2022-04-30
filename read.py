@@ -1,5 +1,5 @@
 data= [] #建立空清單叫data
-count = 0 #計時器
+count = 0 #計數器
 with open('reviews.txt', 'r') as f:
 	for line in f: #每次讀取一行,並命名為line
 		data.append(line) #將line加入data清單中
@@ -12,9 +12,16 @@ print(data[0])
 print('----------')
 print(data[1])		
 
-#牛留言平均長度
+#求留言平均長度
 sum_len = 0
-for d in data:
+for d in data: #d為每一筆留言，data為裝著1000000筆留言的清單
 	sum_len += len(d) #sum_len = sum_len + len(d)
-	print(sum_len)
-print('平均是', sum_len/len(data))	
+print('每筆留言平均長度是', sum_len/len(data))	
+
+#篩選概念
+new = [] #新的清單
+for d in data:
+    if len(d) < 100: #若留言長度小於100
+    	new.append(d) #把留言裝進new清單中
+print('一共有', len(new), '筆留言長度小於100') #放在for loop外，避免一直列印
+print(new[0])
